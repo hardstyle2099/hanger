@@ -4,15 +4,15 @@
     <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
     <property name="console.pattern" value="%d{HH:mm:ss} %-5level - %msg%n" />
 
-    <!-- 控制台输出 -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- 控制台输出 - 禁用，只在文件中输出日志 -->
+    <!-- <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${console.pattern}</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
         </filter>
-    </appender>
+    </appender> -->
 
     <!-- 日志文件 - 按天滚动 -->
     <appender name="file_all" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -81,7 +81,8 @@
     </logger>
 
     <root level="INFO">
-        <appender-ref ref="console" />
+        <!-- 移除console appender，日志只输出到文件 -->
+        <!-- <appender-ref ref="console" /> -->
         <appender-ref ref="async_file" />
         <appender-ref ref="async_file_error" />
     </root>
