@@ -74,12 +74,6 @@
 
     <logger name="com.sgai" level="INFO" />
 
-    <!-- System.out 重定向：只写文件，不输出到控制台 -->
-    <logger name="SYSTEM_OUT" level="INFO" additivity="false">
-        <appender-ref ref="async_file" />
-        <appender-ref ref="async_file_error" />
-    </logger>
-
     <root level="INFO">
         <!-- 移除console appender，日志只输出到文件 -->
         <!-- <appender-ref ref="console" /> -->
